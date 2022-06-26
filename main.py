@@ -3,6 +3,9 @@ import sys
 
 pg.init()
 
+# variables
+i = 1
+
 # colors
 black = (0, 0, 0)
 white = (255, 255, 255)
@@ -19,6 +22,13 @@ screen.fill(white)
 pg.display.set_caption("GridGame")
 
 # font
+font = pg.font.SysFont('arial', 25)
+number = font.render("1", True, green)
+font_x = 25
+font_y = 25
+font_step_x = 50
+font_step_y = 50
+
 
 # grid
 cell_w = 50
@@ -34,11 +44,15 @@ cell = pg.Rect(cell_x, cell_y, cell_w, cell_h)
 
 while cell_y <= win_heigth:
     pg.draw.rect(screen, black, (cell_x, cell_y, cell_w, cell_h), 1)
+    screen.blit(number, (font_x, font_y))
     cell_x += step_x
+    font_x += font_step_x
 
     if cell_x == win_width:
         cell_y += step_y
         cell_x = 0
+        font_y += font_step_y
+        font_x = 25
 
 
 # main logic
