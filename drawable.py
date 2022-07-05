@@ -25,6 +25,7 @@ def drawTriangleFill(x1, y1, x2, y3, i):
     y3 = y2 - y3
     triangle_fill = pg.draw.polygon(window, green, ((x1, y1), (x2, y2), (x3, y3)), i)
 
+#def drawChristmasTree(c_x1, c_y1):
 
 
 
@@ -35,7 +36,9 @@ def start_game():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.QUIT
-            drawTriangleFill(500, 500, 100, 100, 0)
+            drawTriangleFill(500, 500, 100, 75, 0)
+            drawTriangleFill(500, 575, 100, 75, 0)
+            drawTriangleFill(500, 650, 100, 75, 0)
             pg.display.flip()
 
 start_game()
